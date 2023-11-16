@@ -29,7 +29,7 @@ int main(int argc, char **argv)
 	global.lineptr = NULL;
 	if (argc != 2)
 	{
-		fputs("USAGE: monty file\n", stderr);
+		dprintf(STDERR_FILENO, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 	global.fptr = fopen(argv[1], "r");
@@ -49,7 +49,6 @@ int main(int argc, char **argv)
 			{
 				global.token = strtok(NULL, " \t\n");
 				func(global.op_code)(&head, line_num);
-				printf("%u:%s\n", line_num, global.op_code);
 			}
 			line_num++;
 		}
