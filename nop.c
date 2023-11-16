@@ -8,8 +8,7 @@
 void nop(stack_t **stack, unsigned int num_line)
 {
 	if (*stack)
-		;
+	{};
 	if (num_line)
-		;
+	{};
 }
-

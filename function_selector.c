@@ -18,7 +18,7 @@ void (*func(char *tokens))(stack_t **stack, unsigned int num_line)
 	};
 	int i = 0;
 	int array_len = sizeof(funcs) / sizeof(funcs[0]);
-	
+
 	printf("array: %d\n", array_len);
 	while (i < array_len)
 	{

@@ -21,8 +21,9 @@ void trim_line(char *line)
 int main(int argc, char **argv)
 {
 	stack_t *head = NULL;
-	int size_n = 0, bytes_read = 0;
+	int bytes_read = 0;
 	unsigned int line_num = 1;
+	size_t size_n;
 
 	global.flag = 1;
 	global.lineptr = NULL;
