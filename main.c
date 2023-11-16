@@ -21,14 +21,14 @@ void trim_line(char *line)
 int main(int argc, char **argv)
 {
 	stack_t *head = NULL;
-	size_t size_n = 0, bytes_read = 0;
+	int size_n = 0, bytes_read = 0;
 	unsigned int line_num = 1;
 
 	global.flag = 1;
 	global.lineptr = NULL;
 	if (argc != 2)
 	{
-		dprintf(STDERR_FILENO, "USAGE: monty file\n");
+		fputs("USAGE: monty file\n", stderr);
 		exit(EXIT_FAILURE);
 	}
 	global.fptr = fopen(argv[1], "r");

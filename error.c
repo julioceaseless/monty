@@ -11,9 +11,6 @@ void error(stack_t **stack, unsigned int n)
 	free(global.lineptr);
 	fclose(global.fptr);
 	free_stack(stack);
-	if (stack)
-	{
-	}
 	exit(EXIT_FAILURE);
 }
 
