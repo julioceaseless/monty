@@ -9,6 +9,8 @@
 void pstr(stack_t **head, unsigned int line_num)
 {
 	stack_t *temp = NULL;
+
+	(void)line_num;
 	/**
 	if (*head == NULL)
 	{
