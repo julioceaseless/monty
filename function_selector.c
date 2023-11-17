@@ -11,6 +11,7 @@ void (*func(char *tokens))(stack_t **stack, unsigned int num_line)
 	instruction_t funcs[] = {
 		{"push", push},
 		{"pall", pall},
+		{"pop", _pop},
 		{"add", _add},
 		{"sub", _sub},
 		{"mod", _mod},
