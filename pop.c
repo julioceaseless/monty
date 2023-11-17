@@ -21,7 +21,5 @@ void _pop(stack_t **head, unsigned int line_number)
 		free((*head)->prev);
 		(*head)->prev = NULL;
 	}
-	else
-		free_stack(head);
 }
 
