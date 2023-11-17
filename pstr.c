@@ -11,16 +11,7 @@ void pstr(stack_t **head, unsigned int line_num)
 	stack_t *temp = NULL;
 
 	(void)line_num;
-	/**
-	if (*head == NULL)
-	{
-		free(global.lineptr);
-		fclose(global.fptr);
-		free_stack(head);
-		dprintf(STDERR_FILENO, "L%u: can't pstr, stack empty\n", line_num);
-		exit(EXIT_FAILURE);
-	}
-	**/
+
 	temp = *head;
 	while (temp != NULL && temp->n != 0 && temp->n > 0 && temp->n <= 127)
 	{
