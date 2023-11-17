@@ -20,6 +20,7 @@ void (*func(char *tokens))(stack_t **stack, unsigned int num_line)
 		{"swap", swap},
 		{"pint", pint},
 		{"nop", nop},
+		{"pchar", pchar},
 		{"#", nop},
 		{"err", error},
 		{NULL, NULL}
