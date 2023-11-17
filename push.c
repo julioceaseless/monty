@@ -2,14 +2,14 @@
 
 /**
  * push - pushes an element to the stack
- * @stack: head pointer of the stack
+ * @head: head pointer of the stack
  * @line_number: line number of opcode
  */
-void push(stack_t **stack, unsigned int line_number)
+void push(stack_t **head, unsigned int line_number)
 {
 	stack_t *newnode = NULL;
 
-	parse_to_int(stack, line_number);
+	parse_to_int(head, line_number);
 	if (global.token)
 	{
 		newnode = malloc(sizeof(stack_t));
@@ -18,33 +18,33 @@ void push(stack_t **stack, unsigned int line_number)
 			dprintf(STDERR_FILENO, "Error: malloc failed\n");
 			exit(EXIT_FAILURE);
 		}
-		newnode->n = global.num, newnode->next = NULL, newnode->prev = NULL;
-		if (*stack)
+		newnode->n = global.num, newnode->next = NULL;
+		newnode->prev = NULL;
+		if (*head != NULL)
 		{
 			if (global.flag == 1)
 			{
-				newnode->next = *stack;
-				(*stack)->prev = newnode;
-				*stack = newnode;
+				newnode->next = *head;
+				(*head)->prev = newnode, *head = newnode;
 			}
 			else
 			{
-				while ((*stack)->next)
-					*stack = (*stack)->next;
-				(*stack)->next = newnode, newnode->prev = *stack;
-				while ((*stack)->prev)
-					*stack = (*stack)->prev;
+				while ((*head)->next)
+					*head = (*head)->next;
+				(*head)->next = newnode, newnode->prev = *head;
+				while ((*head)->prev)
+					*head = (*head)->prev;
 			}
 		}
 		else
-			*stack = newnode;
+			*head = newnode;
 	}
 	else
 	{
 		free(global.lineptr);
 		fclose(global.fptr);
 		dprintf(STDERR_FILENO, "L%u: usage: push integer\n", line_number);
-		free_stack(stack);
+		free_stack(head);
 		exit(EXIT_FAILURE);
 	}
 }

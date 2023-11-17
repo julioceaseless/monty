@@ -11,21 +11,29 @@ void (*func(char *tokens))(stack_t **stack, unsigned int num_line)
 	instruction_t funcs[] = {
 		{"push", push},
 		{"pall", pall},
-		{"#", nop},
+		{"add", _add},
+		{"sub", _sub},
+		{"mod", _mod},
+		{"div", _div},
+		{"mul", _mul},
+		{"swap", swap},
 		{"pint", pint},
+		{"#", nop},
 		{"err", error},
 		{NULL, NULL}
 	};
-	int i = 0;
-	int array_len = sizeof(funcs) / sizeof(funcs[0]);
+	int i = 0, check_func;
+	int len = sizeof(funcs) / sizeof(funcs[0]);
 
 	/*printf("array: %d\n", array_len);*/
-	while (i < array_len)
+	while (i < len)
 	{
-		if (strcmp(funcs[i].opcode, tokens) == 0)
+
+		check_func = strcmp(funcs[i].opcode, tokens);
+		if (check_func == 0)
 			return (funcs[i].f);
 		i++;
 	}
-	return (funcs[array_len - 2].f);
+	return (funcs[len - 2].f);
 }
 

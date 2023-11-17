@@ -59,15 +59,20 @@ char *opcode;
 void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void mod(stack_t **stack, unsigned int num_line);
-void stack(stack_t **stack, unsigned int num_line);
+void _mod(stack_t **stack, unsigned int line_number);
+void _mul(stack_t **head, unsigned int line_number);
+void _div(stack_t **stack, unsigned int line_number);
+void _sub(stack_t **stack, unsigned int line_number);
+void _add(stack_t **head, unsigned int line_number);
+void stack(stack_t **stack, unsigned int line_number);
 void error(stack_t **stack, unsigned int n);
 void parse_to_int(stack_t **stack, unsigned int n);
+void swap(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t **stack);
-void nop(stack_t **stack, unsigned int num_line);
-void (*func(char *tokens))(stack_t **stack, unsigned int num_line);
-void pall(stack_t **stack, unsigned int num_line);
-void push(stack_t **stack, unsigned int num_line);
-void pint(stack_t **head, unsigned int line_num);
+void nop(stack_t **stack, unsigned int line_number);
+void (*func(char *tokens))(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+void push(stack_t **stack, unsigned int line_number);
+void pint(stack_t **head, unsigned int line_number);
 #endif
 
