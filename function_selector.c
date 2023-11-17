@@ -21,6 +21,7 @@ void (*func(char *tokens))(stack_t **stack, unsigned int num_line)
 		{"pint", pint},
 		{"nop", nop},
 		{"pchar", pchar},
+		{"pstr", pstr},
 		{"#", nop},
 		{"err", error},
 		{NULL, NULL}

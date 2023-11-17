@@ -52,6 +52,8 @@ int main(int argc, char **argv)
 			}
 			line_num++;
 		}
+		else
+			line_num++;
 	}
 	free_stack(&head);
 	free(global.lineptr);
