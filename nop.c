@@ -3,10 +3,10 @@
 /**
  * nop - this code does nothinf.
  * @stack: head
- * @num_line: number of the line
+ * @line_num: line number
  */
-void nop(stack_t **stack, unsigned int num_line)
+void nop(stack_t **stack, unsigned int line_num)
 {
 	 (void)(stack);
-	(void)(num_line);
+	(void)(line_num);
 }
