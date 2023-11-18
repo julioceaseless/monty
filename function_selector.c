@@ -9,24 +9,16 @@
 void (*func(char *tokens))(stack_t **stack, unsigned int num_line)
 {
 	instruction_t funcs[] = {
-		{"push", push},
-		{"pall", pall},
-		{"pop", _pop},
-		{"add", _add},
-		{"sub", _sub},
-		{"mod", _mod},
-		{"div", _div},
-		{"mul", _mul},
-		{"swap", swap},
-		{"pint", pint},
-		{"nop", nop},
-		{"pchar", pchar},
-		{"pstr", pstr},
-		{"stack", stack},
-		{"queue", queue},
-		{"#", nop},
-		{"err", error},
-		{NULL, NULL}
+		{"push", push}, {"pall", pall},
+		{"pop", _pop}, {"add", _add},
+		{"sub", _sub}, {"mod", _mod},
+		{"div", _div}, {"mul", _mul},
+		{"swap", swap}, {"pint", pint},
+		{"nop", nop}, {"pchar", pchar},
+		{"pstr", pstr}, {"stack", stack},
+		{"queue", queue}, {"#", nop},
+		{"rotl", rotl}, {"rotr", rotr},
+		{"err", error}, {NULL, NULL}
 	};
 	int i = 0, check_func;
 	int len = (sizeof(funcs) / sizeof(funcs[0]) - 1);

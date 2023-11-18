@@ -33,7 +33,7 @@ void push(stack_t **head, unsigned int line_number)
 				while (temp->next != NULL) /* navigate to last node */
 					temp = temp->next;
 				temp->next = newnode;
-			       	newnode->prev = temp;
+				newnode->prev = temp;
 			}
 		}
 		else
