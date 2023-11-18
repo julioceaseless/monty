@@ -18,7 +18,8 @@ void _add(stack_t **head, unsigned int line_number)
 	}
 	sum = (*head)->n + (*head)->next->n;
 	*head = (*head)->next;
-	(*head)->n = sum;
-	(*head)->prev = NULL;
+	if (*head)
+		(*head)->prev = NULL;
 	free((*head)->prev);
+	(*head)->n = sum;
 }
