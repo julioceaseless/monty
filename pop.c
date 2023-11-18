@@ -17,13 +17,16 @@ void _pop(stack_t **head, unsigned int line_number)
 	}
 	if ((*head)->next != NULL)
 	{
+		/* when linkedlist has more than one node */
 		*head = (*head)->next;
 		free((*head)->prev);
 		(*head)->prev = NULL;
 	}
 	else
 	{
-		free_stack(head);
+		/* when linked list has only one node */
+		free(*head);
+		*head = NULL;
 	}
 }
 
