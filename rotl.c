@@ -6,16 +6,20 @@
  */
 void rotl(stack_t **head, unsigned int line_num)
 {
-	stack_t *templ = NULL, *temp = NULL;
+	stack_t *templ = NULL;
+	stack_t *temp = NULL;
 
 	(void)line_num;
-	templ = temp = *head;
-	while (temp->next)
-		temp = temp->next;
+	if (*head && (*head)->next)
+	{
+		templ = temp = *head;
+		while (temp->next)
+			temp = temp->next;
 	/* move head to the second node */
-	*head = (*head)->next;
-	(*head)->prev = NULL;
-	temp->next = templ;
-	templ->prev = temp;
-	templ->next = NULL;
+		*head = (*head)->next;
+		(*head)->prev = NULL;
+		temp->next = templ;
+		templ->prev = temp;
+		templ->next = NULL;
+	}
 }

@@ -11,12 +11,12 @@
 #include <unistd.h>
 /**
  * struct global_variables - these are shared variables
- * @line: string
- * @token: string
- * @op_code: string
+ * @lineptr: line read
+ * @token: argument
+ * @op_code: op code
  * @fptr: file pointer
  * @num: integer
- * @flag: integer
+ * @mode: mode selector
  */
 typedef struct global_variables
 {
