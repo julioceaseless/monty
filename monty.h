@@ -77,5 +77,6 @@ void pint(stack_t **head, unsigned int line_number);
 void _pop(stack_t **head, unsigned int line_number);
 void pchar(stack_t **head, unsigned int line_number);
 void pstr(stack_t **head, unsigned int line_number);
+void handle_error(stack_t **stack);
 #endif
 

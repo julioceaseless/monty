@@ -9,19 +9,14 @@ void pchar(stack_t **head, unsigned int line_num)
 {
 	if (*head == NULL)
 	{
-		free(global.lineptr);
-		fclose(global.fptr);
-		free_stack(head);
 		dprintf(STDERR_FILENO, "L%u: can't pchar, stack empty\n", line_num);
-		exit(EXIT_FAILURE);
+		handle_error(head);
 	}
+
 	if ((*head)->n < 0 || (*head)->n > 127)
 	{
-		free(global.lineptr);
-		fclose(global.fptr);
-		free_stack(head);
 		dprintf(STDERR_FILENO, "L%d: can't pchar, value out of range\n", line_num);
-		exit(EXIT_FAILURE);
+		handle_error(head);
 	}
 	printf("%c\n", (*head)->n);
 }

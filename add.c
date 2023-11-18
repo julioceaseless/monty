@@ -11,10 +11,7 @@ void _add(stack_t **head, unsigned int line_number)
 	if (*head == NULL || (*head)->next == NULL)
 	{
 		dprintf(STDERR_FILENO, "L%d: can't add, stack too short\n", line_number);
-		free(global.lineptr);
-		fclose(global.fptr);
-		free_stack(head);
-		exit(EXIT_FAILURE);
+		handle_error(head);
 	}
 	sum = (*head)->n + (*head)->next->n;
 	*head = (*head)->next;
