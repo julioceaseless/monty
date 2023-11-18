@@ -7,6 +7,7 @@
 void _add(stack_t **head, unsigned int line_number)
 {
 	int sum = 0;
+
 	if (*head == NULL || (*head)->next == NULL)
 	{
 		dprintf(STDERR_FILENO, "L%d: can't add, stack too short\n", line_number);
