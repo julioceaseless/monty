@@ -25,7 +25,7 @@ int main(int argc, char **argv)
 	unsigned int line_num = 1;
 	size_t size_n = 0;
 
-	global.flag = 1;
+	global.mode = 1;
 	global.lineptr = NULL;
 	if (argc != 2)
 	{

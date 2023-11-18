@@ -7,7 +7,7 @@
  */
 void push(stack_t **head, unsigned int line_number)
 {
-	stack_t *newnode = NULL;
+	stack_t *newnode = NULL, *temp = NULL;
 
 	parse_to_int(head, line_number);
 	if (global.token)
@@ -22,29 +22,26 @@ void push(stack_t **head, unsigned int line_number)
 		newnode->prev = NULL;
 		if (*head != NULL)
 		{
-			if (global.flag == 1)
+			temp = *head;
+			if (global.mode == 1)
 			{
 				newnode->next = *head;
 				(*head)->prev = newnode, *head = newnode;
 			}
 			else
 			{
-				while ((*head)->next)
-					*head = (*head)->next;
-				(*head)->next = newnode, newnode->prev = *head;
-				while ((*head)->prev)
-					*head = (*head)->prev;
+				while (temp->next != NULL) /* navigate to last node */
+					temp = temp->next;
+				temp->next = newnode;
+			       	newnode->prev = temp;
 			}
 		}
 		else
-			*head = newnode;
+			*head = newnode; /* when stack is empty */
 	}
 	else
 	{
-		free(global.lineptr);
-		fclose(global.fptr);
 		dprintf(STDERR_FILENO, "L%u: usage: push integer\n", line_number);
-		free_stack(head);
-		exit(EXIT_FAILURE);
+		handle_error(head);
 	}
 }

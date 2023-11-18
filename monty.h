@@ -25,7 +25,7 @@ char *token;
 char *op_code;
 FILE *fptr;
 int num;
-int flag;
+int mode;
 } global_vars;
 
 extern global_vars global;
@@ -65,6 +65,7 @@ void _div(stack_t **stack, unsigned int line_number);
 void _sub(stack_t **stack, unsigned int line_number);
 void _add(stack_t **head, unsigned int line_number);
 void stack(stack_t **stack, unsigned int line_number);
+void queue(stack_t **stack, unsigned int line_number);
 void error(stack_t **stack, unsigned int n);
 void parse_to_int(stack_t **stack, unsigned int n);
 void swap(stack_t **stack, unsigned int line_number);

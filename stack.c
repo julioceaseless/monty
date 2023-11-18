@@ -8,6 +8,6 @@
 void stack(stack_t **stack, unsigned int num_line)
 {
 	if (stack || num_line)
-		global.flag = 1;
+		global.mode = 1;
 }
 
