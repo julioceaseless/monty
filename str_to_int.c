@@ -12,10 +12,7 @@ void parse_to_int(stack_t **stack, unsigned int line_num)
 	if (global.token == NULL)
 	{
 		dprintf(STDERR_FILENO, "L%u: usage: push integer\n", line_num);
-		free_stack(stack);
-		free(global.lineptr);
-		fclose(global.fptr);
-		exit(EXIT_FAILURE);
+		handle_error(stack);
 	}
 	/* check negative */
 	if (global.token[index] == '-')
@@ -25,10 +22,7 @@ void parse_to_int(stack_t **stack, unsigned int line_num)
 		if (!(global.token[index] >= '0' && global.token[index] <= '9'))
 		{
 			dprintf(STDERR_FILENO, "L%u: usage: push integer\n", line_num);
-			free_stack(stack);
-			free(global.lineptr);
-			fclose(global.fptr);
-			exit(EXIT_FAILURE);
+			handle_error(stack);
 		}
 		index++;
 	}
